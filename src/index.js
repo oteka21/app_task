@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // configuration
-app.use(express.static('public'));
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(express.static('./src/public/'));
 
 
 //middleware
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req,res)=>{
 	res.render('index.ejs');
-})
+});
 
 
 
@@ -28,4 +28,4 @@ app.get('*', (req,res)=>{
 
 app.listen(3000, ()=>{
 	console.log('servidor corriendo en puerto 3000');
-})
+});

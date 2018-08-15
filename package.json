@@ -5,7 +5,7 @@
   "main": "/src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js & gulp",
+    "dev": "gulp & nodemon src/index.js",
     "build": "gulp"
   },
   "keywords": [],
