@@ -2,11 +2,58 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Tareas</title>
 	<link rel="stylesheet" href="app.css">
 	<link rel="icon" type="" href="favicon.png">
 </head>
-<body>
-	
+<body class="bg-light">
+	<div class="container">
+		<br><br>
+		<div class="row">
+			<div class="col-md-6 col-sm-12">
+				<form action="" method="post">
+					<h2>
+						ADD A NEW TASK
+					</h2>
+					<hr>
+					<div class="form-group">
+						<label for="taskName">Task Name:</label>
+						<input type="text" name="taskName" id="taskName" class="form-control" placeholder="Add a nome for your new task">
+					</div>
+					<div class="form-group">
+						<label for="taskDes">Task description:</label>
+						<textarea name="taskDes" cols="30" rows="2" placeholder="add a description for your new task" id="taskDes" class="form-control"></textarea>
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-dark  btn-block" value="Add" name="add">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6 col-sm-12">
+				<div id="accordion">
+				  <div class="card">
+				    <div class="card-header" id="headingOne">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				          Collapsible Group Item #1
+				        </button>
+				      </h5>
+				    </div>
+				    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+				      <div class="card-body">
+				        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- scripts -->
+	<script type="text/javascript" src="app.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
