@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const router = require('./routes/router');
 const app = express();
 
 // configuration
@@ -16,10 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //routes
 
-app.get('/', (req,res)=>{
-	res.render('index.ejs');
-});
-
+app.use('/', router);
 
 
 app.get('*', (req,res)=>{
