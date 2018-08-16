@@ -1,7 +1,8 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
-const browserify = require('gulp-browserify');
+const browserify = require('browserify');
+const babel = require('babelify');
 const source = require('vinyl-source-stream');
 
 gulp.task('styles',()=>{
@@ -13,11 +14,13 @@ gulp.task('styles',()=>{
 });
 
 gulp.task('scripts', ()=>{
-	gulp
-	.src('src/scripts/index.js')
-	.pipe(browserify({ debug: true }))
-	.pipe(rename('app.js'))
-	.pipe(gulp.dest('src/public/'))
+
+	browserify('./src/scripts/index.js')
+		.transform(babel, { presets: ['env','es2015'] })
+			.bundle()
+			.pipe(source('index.js'))
+			.pipe(rename('app.js'))
+			.pipe(gulp.dest('src/public'));
 });
 
 gulp.task('default',['styles','scripts'],()=>{
