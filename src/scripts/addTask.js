@@ -19,6 +19,6 @@ module.exports = ()=>{
     	},
     	body: JSON.stringify(body)
 		});
-		const res = await req.jsoon();
+		const res = await req.json();
 	});
 }

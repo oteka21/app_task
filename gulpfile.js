@@ -16,7 +16,7 @@ gulp.task('styles',()=>{
 gulp.task('scripts', ()=>{
 
 	browserify('./src/scripts/index.js')
-		.transform(babel, { presets: ['env','es2015'] })
+		.transform(babel)
 			.bundle()
 			.pipe(source('index.js'))
 			.pipe(rename('app.js'))
