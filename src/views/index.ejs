@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Tareas</title>
+	<title><%= title %></title>
 	<link rel="stylesheet" href="app.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="icon" type="" href="favicon.png">
@@ -33,24 +33,36 @@
 			</div>
 			<div class="col-md-6 col-sm-12">
 				<h2>
-					TASKS LIST <i class="fas fa-address-card"></i>
+					TASKS LIST <i class="fas fa-clipboard-list float-right"></i>
 				</h2>
 				<hr>
 				<div id="accordion">
+					<% for(let i = 0; i < tasks.length; i++){  %>
 				  <div class="card">
-				    <div class="card-header bg-warning" id="headingOne">
+				    <div class="card-header <%= (tasks[i].task_status == 'waiting') ? 'bg-secondary' : 'bg-success'; %>" id="heading-<%= tasks[i].task_id %>">
 				      <h5 class="mb-0">
-				        <button class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-				          Primera tarea
+				        <button class="btn btn-link text-light" data-toggle="collapse" data-target="#collapse-<%= tasks[i].task_id %>" aria-expanded="true" aria-controls="collapse-<%= tasks[i].task_id %>">
+				         	<%= tasks[i].task_name %>
 				        </button>
+				      <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+				      		<% if (tasks[i].task_status != 'success'){ %>
+						    <button class="btn btn-light text-success check-btn" data-id="<%= tasks[i].task_id %>">
+						    <i class="far fa-check-circle"></i>
+						    </button>
+						    <% } %>
+						    <button class="btn btn-light text-danger delete-btn" data-id="<%= tasks[i].task_id %>">
+				      		<i class="fas fa-trash"></i>
+						    </button>
+						</div>
 				      </h5>
 				    </div>
-				    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+				    <div id="collapse-<%= tasks[i].task_id %>" class="collapse" aria-labelledby="heading-<%= tasks[i].task_id %>" data-parent="#accordion">
 				      <div class="card-body">
-				        Descriptcion de la tarea
+				        	<%= tasks[i].task_des %>
 				      </div>
 				    </div>
 				  </div>
+				  <% } %>
 				</div>
 			</div>
 		</div>
@@ -61,28 +73,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-	// 	const $form = document.querySelector('form');
-	// // console.log($form);
-	// console.log($form);
-	// $form.addEventListener('submit', async (e)=>{
-	// e.preventDefault();
-	// const data = new FormData($form);
-	// const body = {
-	// 	task: data.get('taskName'),
-	// 	taskdes: data.get('taskDes'),
-	// 	estatus: "waiting"
-	// }
-	// console.log(body);
-	// 	const req = await fetch('/addTask', {
-	// 	method: 'POST',
-	// 	headers: {
- //      'Accept': 'application/json',
- //      'Content-Type': 'application/json'
- //    	},
- //    	body: JSON.stringify(body)
-	// 	});
-	// 	const res = await req.json();
-	// });
 	</script>
 </body>
 </html>
