@@ -3,7 +3,10 @@ const router = express.Router();
 const con = require('../db-connection/connection');
 
 con.connect((err)=>{
-	if (err) throw err;
+	if (err) {
+		console.error('Error al conectar a la base de dato');
+		process.exit();
+	}
 	console.log('conectado correctamente a la base de datos');
 })
 
